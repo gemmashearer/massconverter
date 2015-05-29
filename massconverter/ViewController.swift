@@ -9,7 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var enterMolesTextField: UITextField!
+    @IBOutlet weak var enterRfmTextField: UITextField!
+    
+    @IBOutlet weak var calculatedMoles: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,5 +26,15 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func calculateMolesButtonPressed(sender: UIButton) {
+        var molesFromTextField = Double((enterMolesTextField.text as NSString).doubleValue)
+        var rfmFromTextField = Double((enterRfmTextField.text as NSString).doubleValue)
+        
+        calculatedMoles.hidden = false
+        calculatedMoles.text = "The mass is " + "\(molesFromTextField * rfmFromTextField) g"
+        
+        
+        // let sizeFromTextField = Double((womensShoeSizeTextField.text as NSString).doubleValue)
+    }
 }
 
